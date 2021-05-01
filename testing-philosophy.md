@@ -7,12 +7,19 @@ I would also like to continue the conversation about our testing philosophy as a
 I tend to break tests into two categories: 
 
 (1) Unit - These thoroughly test our atomic pieces of software (e.g., methods, classes). I accomplish this through highly-focused tests that:
+
 &nbsp;&nbsp;(a) Capture all of the important branching
+
 &nbsp;&nbsp;(b) Capture all the IO for the method/class/whatever
+
 &nbsp;&nbsp;(c) Ignore as much application state as possible.
+
 (2) Integration - These test that we get reasonable responses when our atomic pieces talk to each other. These tests
+
 &nbsp;&nbsp;(a) Ignore most branching
+
 &nbsp;&nbsp;(b) Ignore most of the IO details
+
 &nbsp;&nbsp;(c) Ignore as much application state as possible (which is inevitably a lot more than with unit tests)
 
 I like to think about the integration-unit distinction in terms of coverage. When I'm writing unit tests, I'm striving for 100% coverage one small piece a time. When I'm writing integration tests, I like to pretend that I already have 100% coverage. This approach helps me write focused tests -- which are small, easy to read, and robust (i.e., only fails when the thing it's testing breaks).
